@@ -1,8 +1,7 @@
 .countdownWrapper {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
-  margin: 2rem 0;
   z-index: 1;
   position: relative;
 }
@@ -12,29 +11,45 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #fff;
-  border: 1px solid rgba(234, 88, 12, 0.2);
-  border-radius: 0.75rem;
-  width: 80px;
-  height: 80px;
-  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.1);
+  background: #f8f5ee;
+  border-radius: 1.25rem;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .timeValue {
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-size: 3.8rem;
+  font-weight: 700;
   color: #111827;
-  line-height: 1;
-  margin-bottom: 0.25rem;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
   font-variant-numeric: tabular-nums;
 }
 
 .timeLabel {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #ea580c;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4b5563;
+  text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+  .countdownWrapper {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .timeBox {
+    width: 120px;
+    height: 120px;
+    border-radius: 1rem;
+  }
+  .timeValue {
+    font-size: 2.8rem;
+  }
+  .timeLabel {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -42,14 +57,14 @@
     gap: 0.5rem;
   }
   .timeBox {
-    width: 65px;
-    height: 65px;
-    border-radius: 0.5rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 0.75rem;
   }
   .timeValue {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
   .timeLabel {
-    font-size: 0.55rem;
+    font-size: 0.75rem;
   }
 }

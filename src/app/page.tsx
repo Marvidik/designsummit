@@ -73,8 +73,6 @@ export default function Home() {
           90 speakers. 10,000+ executives. 16 hours of insight.
         </p>
 
-        <Countdown />
-
         <div className={styles.heroActions}>
           <a href="#register" className={styles.primaryButton}>Register for FREE</a>
           <a href="#sponsors" className={styles.secondaryButton}>Become a Sponsor</a>
@@ -258,6 +256,23 @@ export default function Home() {
                 <p>The summit is planned to help attendees return with clearer thinking, better conversations, and practical next steps.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PREMIUM COUNTDOWN ── */}
+      <section className={styles.premiumCountdownWrapper}>
+        <img src="/design1.png" alt="Summit Background" className={styles.premiumCountdownBg} />
+        <div className={styles.premiumCountdownOverlay} />
+        <div className={styles.premiumCountdownInner}>
+          <span className={styles.premiumCountdownEyebrow}>Tickets close soon</span>
+          <h2 className={styles.premiumCountdownTitle}>Reserve your seat<br />before the room fills.</h2>
+          <p className={styles.premiumCountdownDesc}>
+            Seats are limited for this one-day leadership summit. Reserve early to join the keynote<br />sessions, workshops, and networking moments before the room fills.
+          </p>
+          <Countdown />
+          <div className={styles.premiumCountdownAction}>
+            <button className={styles.premiumCountdownBtn}>Buy Your Ticket</button>
           </div>
         </div>
       </section>
