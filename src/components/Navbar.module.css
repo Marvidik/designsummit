@@ -33,29 +33,12 @@
   flex-shrink: 0;
 }
 
-.logoBox {
-  background: #ea580c;
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 0.75rem;
-  padding: 0.35rem 0.6rem;
-  border-radius: 0.4rem;
-  letter-spacing: 0.05em;
+.logoImg {
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.2s;
 }
-
-.logoText {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #111827;
-  letter-spacing: -0.03em;
-}
-
-.logoYear {
-  background: linear-gradient(90deg, #ea580c, #f97316);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.logoImg:hover { transform: scale(1.05); }
 
 /* Desktop Links */
 .links {
@@ -80,7 +63,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #ea580c;
+  background: #FF6B3D;
   transform: scaleX(0);
   transition: transform 0.2s;
 }
@@ -101,19 +84,38 @@
 }
 
 .ctaBtn {
-  background: #ea580c;
+  background: #FF6B3D;
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
   padding: 0.6rem 1.4rem;
   border-radius: 2rem;
   text-decoration: none;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: transform 0.2s, background 0.2s;
   white-space: nowrap;
 }
 
 .ctaBtn:hover {
-  background: #c2410c;
+  background: #E65A2E;
+  transform: translateY(-1px);
+}
+
+.ctaBtnSecondary {
+  background: transparent;
+  color: #2962FF;
+  border: 1.5px solid #2962FF;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.ctaBtnSecondary:hover {
+  background: #2962FF;
+  color: white;
   transform: translateY(-1px);
 }
 
@@ -163,17 +165,34 @@
 
 .mobileCta {
   margin-top: 1rem;
-  background: #ea580c;
+  background: #FF6B3D;
   color: white;
   font-weight: 700;
   text-align: center;
   padding: 1rem;
   border-radius: 0.75rem;
   text-decoration: none;
+  transition: background 0.2s;
 }
+.mobileCta:hover { background: #E65A2E; }
 
-@media (max-width: 768px) {
+.mobileCtaSecondary {
+  margin-top: 0.5rem;
+  background: transparent;
+  color: #2962FF;
+  border: 1.5px solid #2962FF;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.mobileCtaSecondary:hover { background: #2962FF; color: white; }
+
+@media (max-width: 900px) {
   .links { display: none; }
   .ctaBtn { display: none; }
+  .ctaBtnSecondary { display: none; }
   .hamburger { display: flex; }
 }

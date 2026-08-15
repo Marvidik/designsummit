@@ -18,21 +18,21 @@ export default function Navbar() {
       <div className={styles.inner}>
         {/* Logo */}
         <a href="/" className={styles.logo}>
-          <span className={styles.logoBox}>ADS</span>
-          <span className={styles.logoText}>AKWAIBOM<span className={styles.logoYear}>26</span></span>
+          {/* <img src="/Logo1.png" alt="Akwa Ibom Design Summit Logo" className={styles.logoImg} /> */}
         </a>
 
         {/* Desktop Links */}
         <nav className={styles.links}>
-          <a href="#sponsors" className={styles.link}>Sponsors</a>
-          <a href="#agenda" className={styles.link}>Agenda</a>
-          <a href="#speakers" className={styles.link}>Speakers</a>
           <a href="#about" className={styles.link}>About</a>
+          <a href="#programme" className={styles.link}>Programme</a>
+          <a href="#speakers" className={styles.link}>Speakers</a>
+          <a href="#sponsors" className={styles.link}>Sponsors</a>
         </nav>
 
         {/* CTA */}
         <div className={styles.actions}>
-          <a href="#register" className={styles.ctaBtn}>Register for FREE</a>
+          <a href="https://www.tixo.online/akwa-ibom-design-summit-2026" target="_blank" rel="noopener noreferrer" className={styles.ctaBtn}>Register for Event</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIotH96fxRokMtDy4HzuYDio0hcnUrSZNHmsZTWuLLu_9-hw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className={styles.ctaBtnSecondary}>Register for Class</a>
           <button
             className={styles.hamburger}
             onClick={() => setMenuOpen(!menuOpen)}
@@ -48,11 +48,12 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className={styles.mobileMenu}>
-          <a href="#sponsors" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Sponsors</a>
-          <a href="#agenda" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Agenda</a>
-          <a href="#speakers" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Speakers</a>
           <a href="#about" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>About</a>
-          <a href="#register" className={styles.mobileCta} onClick={() => setMenuOpen(false)}>Register for FREE</a>
+          <a href="#programme" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Programme</a>
+          <a href="#speakers" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Speakers</a>
+          <a href="#sponsors" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Sponsors</a>
+          <a href="https://www.tixo.online/akwa-ibom-design-summit-2026" target="_blank" rel="noopener noreferrer" className={styles.mobileCta} onClick={() => setMenuOpen(false)}>Register for Event</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIotH96fxRokMtDy4HzuYDio0hcnUrSZNHmsZTWuLLu_9-hw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className={styles.mobileCtaSecondary} onClick={() => setMenuOpen(false)}>Register for Class</a>
         </div>
       )}
     </header>
