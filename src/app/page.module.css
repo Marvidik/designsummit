@@ -1,12 +1,11 @@
 /* ── CONTAINER ── */
 .container { display: flex; flex-direction: column; align-items: center; width: 100%; background: #fff; }
 
-/* ── HERO ── */
 .hero {
   position: relative;
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; text-align: center;
-  padding: 160px 2rem 6rem;
+  padding: 160px 1rem 6rem;
   width: 100%; overflow: hidden;
   background: #fff;
   min-height: 100vh;
@@ -67,7 +66,7 @@
   font-size: 1.1em; margin-left: 0.2em;
 }
 .heroTagline {
-  font-size: 1.5rem; font-weight: 700; color: #111827;
+  font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 700; color: #111827;
   margin-bottom: 1rem; position: relative; z-index: 1;
 }
 .heroSub {
@@ -509,16 +508,17 @@
   .heroCircle, .heroCircleOuter { display: none; }
   
   /* Corner Shapes */
-  .shapeTopLeft { top: -20px; left: -20px; width: 180px; height: 180px; }
-  .shapeTopRight { top: -20px; right: -20px; width: 180px; height: 180px; }
-  .shapeBottomLeft { bottom: -20px; left: -20px; width: 180px; height: 180px; }
-  .shapeBottomRight { bottom: -20px; right: -20px; width: 180px; height: 180px; }
+  .shapeTopLeft { top: -20px; left: -30px; width: 140px; height: 140px; }
+  .shapeTopRight { top: -20px; right: -30px; width: 140px; height: 140px; }
+  .shapeBottomLeft { bottom: -20px; left: -30px; width: 140px; height: 140px; }
+  .shapeBottomRight { bottom: -20px; right: -30px; width: 140px; height: 140px; }
   
   .ctaLogo { height: 80px; }
 }
 @media (max-width: 480px) {
   .testimonialsGrid { grid-template-columns: 1fr; }
-  .heroTitle { font-size: 4rem; }
+  .heroTitle { font-size: 2.3rem; }
+  .heroBadge { margin-top: 2rem; font-size: 0.75rem; text-align: center; }
   .heroStat { padding: 1rem 0.5rem; }
   .heroStatNum { font-size: 1.6rem; }
 }
