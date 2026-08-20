@@ -2249,3 +2249,76 @@
   transform: scale(1.15);
   /* keep the existing hover-zoom feel, just scaled up more */
 }
+
+
+
+
+.sectionDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.sectionDividerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #FF6B3D 15%, #FF6B3D 85%, transparent);
+}
+
+.sectionDividerMark {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 1.25rem;
+}
+
+.sectionDividerDash {
+  width: 64px;
+  /* was 24px — now the dominant visual element */
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #FF6B3D, #2962FF);
+}
+
+.sectionDividerDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FF6B3D;
+  flex-shrink: 0;
+}
+
+/* Dark-background variant */
+.sectionDividerDark .sectionDividerLine {
+  background: linear-gradient(to right, transparent, rgba(255, 107, 61, 0.5) 15%, rgba(255, 107, 61, 0.5) 85%, transparent);
+}
+
+
+@media (max-width: 768px) {
+  .sectionDivider {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 0 1.25rem;
+    /* small breathing room from the actual screen edge */
+    max-width: none;
+    /* remove the 1400px cap so it can use full viewport */
+  }
+
+  .sectionDividerMark {
+    margin: 0 0.75rem;
+  }
+
+  .sectionDividerDash {
+    width: 40px;
+  }
+
+  .sectionDividerLine {
+    background: linear-gradient(to right, transparent, #FF6B3D 8%, #FF6B3D 92%, transparent);
+  }
+}

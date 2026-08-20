@@ -93,6 +93,15 @@ export default function Home() {
         </div>
       </section>
 
+       <div className={styles.sectionDivider}>
+        <span className={styles.sectionDividerLine} />
+        <span className={styles.sectionDividerMark}>
+          <span className={styles.sectionDividerDash} />
+          <span className={styles.sectionDividerDot} />
+        </span>
+        <span className={styles.sectionDividerLine} />
+      </div>
+
       {/* ── ABOUT THE SUMMIT ── */}
       <section className={styles.aboutSection} id="about">
         {/* <img src="/brand2.png" alt="Decorative Background" style={{ position: 'absolute', top: '10%', left: '-5%', width: '300px', transform: 'rotate(15deg)', opacity: 0.85, pointerEvents: 'none', zIndex: 0 }} /> */}
@@ -396,6 +405,15 @@ export default function Home() {
         </div>
       </section>
 
+       <div className={styles.sectionDivider}>
+        <span className={styles.sectionDividerLine} />
+        <span className={styles.sectionDividerMark}>
+          <span className={styles.sectionDividerDash} />
+          <span className={styles.sectionDividerDot} />
+        </span>
+        <span className={styles.sectionDividerLine} />
+      </div>
+
       {/* ── CLASS CTA ── */}
       <section className={styles.classCtaSection}>
         <div className={styles.classCtaContainer}>
@@ -410,6 +428,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+       <div className={styles.sectionDivider}>
+        <span className={styles.sectionDividerLine} />
+        <span className={styles.sectionDividerMark}>
+          <span className={styles.sectionDividerDash} />
+          <span className={styles.sectionDividerDot} />
+        </span>
+        <span className={styles.sectionDividerLine} />
+      </div>
 
       {/* ── FAQ ── */}
       <section className={styles.faqSection} id="faq">
@@ -426,12 +453,21 @@ export default function Home() {
         </div>
       </section>
 
+      <div className={styles.sectionDivider}>
+        <span className={styles.sectionDividerLine} />
+        <span className={styles.sectionDividerMark}>
+          <span className={styles.sectionDividerDash} />
+          <span className={styles.sectionDividerDot} />
+        </span>
+        <span className={styles.sectionDividerLine} />
+      </div>
+
       {/* ── SOCIAL MEDIA ── */}
       <section className={styles.socialSection}>
-        <CornerShape color="#FF6B3D" className={`${styles.shapeCorner} ${styles.shapeTopLeft}`} />
+        {/* <CornerShape color="#FF6B3D" className={`${styles.shapeCorner} ${styles.shapeTopLeft}`} />
         <CornerShape color="#2962FF" className={`${styles.shapeCorner} ${styles.shapeTopRight}`} />
         <CornerShape color="#2962FF" className={`${styles.shapeCorner} ${styles.shapeBottomLeft}`} />
-        <CornerShape color="#FF6B3D" className={`${styles.shapeCorner} ${styles.shapeBottomRight}`} />
+        <CornerShape color="#FF6B3D" className={`${styles.shapeCorner} ${styles.shapeBottomRight}`} /> */}
 
         <div className={styles.socialInner}>
           <p className={styles.sectionEyebrow} style={{ textAlign: 'center' }}>Stay Connected</p>
