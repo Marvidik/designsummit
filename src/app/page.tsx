@@ -337,7 +337,7 @@ export default function Home() {
               You can discover new brands, speak directly with business owners, ask questions about their products and find things that could work for your next project, home or business.
             </p>
             <div className={styles.heroActions} style={{ justifyContent: 'flex-start', marginTop: '2rem' }}>
-              <a href="#sponsors" className={styles.primaryButton}>Become an Exhibitor</a>
+              <a  href="https://wa.me/2348140617722?text=Hi%2C%20I%27m%20interested%20in%20sponsoring%20or%20exhibiting%20at%20the%20AKWA%20IBOM%20DESIGN%20SUMMIT." className={styles.primaryButton}>Become an Exhibitor</a>
             </div>
           </div>
           <div className={styles.marketImage}>
@@ -393,7 +393,7 @@ export default function Home() {
                 Businesses that fit within the event\'s design, construction, home, technology and related categories can explore exhibitor opportunities.
               </p>
               <a
-                href="https://wa.me/2348000000000?text=Hi%2C%20I%27m%20interested%20in%20sponsoring%20or%20exhibiting%20at%20the%20AKWA%20IBOM%20DESIGN%20SUMMIT."
+                href="https://wa.me/2348140617722?text=Hi%2C%20I%27m%20interested%20in%20sponsoring%20or%20exhibiting%20at%20the%20AKWA%20IBOM%20DESIGN%20SUMMIT."
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.whatsappBtn}
