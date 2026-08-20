@@ -28,41 +28,68 @@ const faqs = [
   { q: 'Can my business exhibit at the summit?', a: 'Yes. Businesses that fit within the event\'s design, construction, home, technology and related categories can explore exhibitor opportunities.' }
 ];
 
+// flip to true when you're ready to reveal — nothing else to touch
+const SPEAKERS_REVEALED = false;
+
+
 export default function Home() {
   return (
     <main className={styles.container}>
 
       {/* ── HERO ── */}
       <section className={styles.hero} id="home">
-        <CornerShape color="#2962FF" className={`${styles.shapeCorner} ${styles.shapeTopLeft}`} />
-        <CornerShape color="#FF6B3D" className={`${styles.shapeCorner} ${styles.shapeTopRight}`} />
-        <CornerShape color="#FF6B3D" className={`${styles.shapeCorner} ${styles.shapeBottomLeft}`} />
-        <CornerShape color="#2962FF" className={`${styles.shapeCorner} ${styles.shapeBottomRight}`} />
+        <div className={styles.heroInner}>
+          <div className={styles.heroContent}>
+            <div className={styles.heroBadge}>
+              <span className={styles.heroBadgeDot} />
+              October 17 &nbsp;·&nbsp; Uyo, Akwa Ibom &nbsp;·&nbsp; Free Registration
+            </div>
 
-        <div className={styles.heroCircle} />
-        <div className={styles.heroCircleOuter} />
+            <h1 className={styles.heroTitle}>
+              <span className={styles.gradientText}>Akwa Ibom</span>
+              <span className={styles.titleYear}>Design Summit</span>
+            </h1>
 
-        <div className={styles.heroBadge}>
-          <span className={styles.heroBadgeDot} />
-          October 17 | Uyo, Akwa Ibom &nbsp;·&nbsp; FREE REGISTRATION
-        </div>
+            <p className={styles.heroTagline}>
+              The flagship interior design event for South-South Nigeria
+            </p>
+            <p className={styles.heroSub}>
+              Design, people, ideas, all in one room. The Akwa Ibom Design Summit brings
+              together designers, architects, engineers, creatives, businesses, students
+              and industry professionals for a day of practical learning, industry
+              conversations, a live interior market and meaningful connections.
+            </p>
 
-        <h1 className={styles.heroTitle}>
-          <span className={styles.gradientText}>AKWA IBOM</span>
-          <span className={styles.gradientText}>
-            DESIGN SUMMIT
-          </span>
-        </h1>
+            <div className={styles.heroActions}>
+              <a
+                href="https://www.tixo.online/akwa-ibom-design-summit-2026"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.primaryButton}
+              >
+                Register for Event
+              </a>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfIotH96fxRokMtDy4HzuYDio0hcnUrSZNHmsZTWuLLu_9-hw/viewform?usp=publish-editor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.secondaryButton}
+              >
+                Register for Class
+              </a>
+            </div>
+          </div>
 
-        <p className={styles.heroTagline}>The flagship interior design event for South-South Nigeria</p>
-        <p className={styles.heroSub}>
-          Design, people, ideas, all in one room.<br />
-          The Akwa Ibom Design Summit brings together designers, architects, engineers, creatives, businesses, students and industry professionals for a day of practical learning, industry conversations, a live interior market and meaningful connections.
-        </p>
-
-        <div className={styles.heroActions}>
-          <a href="https://www.tixo.online/akwa-ibom-design-summit-2026" target="_blank" rel="noopener noreferrer" className={styles.primaryButton}>Register for Event</a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIotH96fxRokMtDy4HzuYDio0hcnUrSZNHmsZTWuLLu_9-hw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className={styles.secondaryButton}>Register for Class</a>
+          <div className={styles.heroVisual}>
+            <div className={styles.heroImageCard}>
+              {/* Swap this src for your real venue / mood-board photo */}
+              <img
+                src="/summit1.jpg"
+                alt="Akwa Ibom Design Summit venue"
+                className={styles.heroImage}
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -239,30 +266,49 @@ export default function Home() {
         <div className={styles.speakersCarouselContainer}>
           <div className={styles.fadeLeft} />
           <div className={styles.speakersTrack}>
-            {[...speakers, ...speakers].map((speaker, idx) => (
-              <div key={idx} className={styles.speakerCard}>
-                {/* Full-bleed photo */}
-                <div className={styles.speakerPhoto}>
-                  <img src={speaker.photo} alt={speaker.name} className={styles.speakerImg} />
-                  {/* Watermark brand shape top-right */}
-                  <div className={styles.speakerWatermark}>
-                    <CornerShape color="rgba(255,255,255,0.15)" className={styles.speakerWatermarkShape} />
-                  </div>
-                  {/* Number badge */}
-                  <span className={styles.speakerBadge}>{String(((idx % speakers.length) + 1)).padStart(2, '0')}</span>
-                </div>
+        {[...speakers, ...speakers].map((speaker, idx) => (
+          <div key={idx} className={styles.speakerCard}>
+            <div className={styles.speakerPhoto}>
+              <img
+                src={speaker.photo}
+                alt={SPEAKERS_REVEALED ? speaker.name : 'Speaker to be revealed'}
+                className={`${styles.speakerImg} ${!SPEAKERS_REVEALED ? styles.speakerImgBlurred : ''}`}
+              />
+              <div className={styles.speakerWatermark}>
+                <CornerShape color="rgba(255,255,255,0.15)" className={styles.speakerWatermarkShape} />
+              </div>
+              <span className={styles.speakerBadge}>
+                {String(((idx % speakers.length) + 1)).padStart(2, '0')}
+              </span>
 
-                {/* Info overlay at bottom */}
-                <div className={styles.speakerInfo}>
-                  {/* Coloured accent line */}
-                  <div className={styles.speakerAccentLine} />
+              {!SPEAKERS_REVEALED && (
+                <div className={styles.speakerRevealOverlay}>
+                  <span className={styles.speakerRevealBadge}>
+                    <span className={styles.speakerRevealDot} />
+                    Revealing soon
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <div className={styles.speakerInfo}>
+              <div className={styles.speakerAccentLine} />
+              {SPEAKERS_REVEALED ? (
+                <>
                   <h3 className={styles.speakerName}>{speaker.name}</h3>
                   <p className={styles.speakerRole}>{speaker.title}</p>
                   <p className={styles.speakerCompanyText}>{speaker.company}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+                </>
+              ) : (
+                <>
+                  <h3 className={styles.speakerName}>Speaker {String(((idx % speakers.length) + 1)).padStart(2, '0')}</h3>
+                  <p className={styles.speakerRole}>Announcement coming</p>
+                </>
+              )}
+            </div>
+            </div>
+          ))}
+        </div>
           <div className={styles.fadeRight} />
         </div>
       </section>
