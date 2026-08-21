@@ -14,7 +14,7 @@ const speakers = [
 
 const faqs = [
   { q: 'Is the Akwa Ibom Design Summit free?', a: 'Yes. Registration and attendance are free.' },
-  { q: 'When is the summit?', a: 'The Akwa Ibom Design Summit takes place on October 17, 2026.' },
+  { q: 'When is the summit?', a: 'The Akwa Ibom Design Summit takes place on October 23, 2026.' },
   { q: 'Where is the summit taking place?', a: 'The event will be held in Uyo, Akwa Ibom.' },
   { q: 'Who can attend?', a: 'The summit is open to interior designers, architects, civil engineers, students, creative professionals, business owners, real estate professionals, design enthusiasts and anyone interested in how beautiful spaces are designed and built.' },
   { q: 'Do I need to be an interior designer to attend?', a: 'No. You don\'t need to work in interior design. If you\'re interested in design, architecture, construction, real estate, creativity or beautiful spaces, you\'re welcome.' },
@@ -42,7 +42,7 @@ export default function Home() {
           <div className={styles.heroContent}>
             <div className={styles.heroBadge}>
               <span className={styles.heroBadgeDot} />
-              October 17 &nbsp;·&nbsp; Uyo, Akwa Ibom &nbsp;·&nbsp; Free Registration
+              October 23 &nbsp;·&nbsp; Uyo, Akwa Ibom &nbsp;·&nbsp; Free Registration
             </div>
 
             <h1 className={styles.heroTitle}>
@@ -116,7 +116,7 @@ export default function Home() {
                 A good space is rarely the work of one person.
               </h3>
               <div className={styles.summitDetails}>
-                <div className={styles.summitRow}><span>Date</span><span>October 17, 2026</span></div>
+                <div className={styles.summitRow}><span>Date</span><span>October 23, 2026</span></div>
                 <div className={styles.summitRow}><span>Venue</span><span>Uyo, Akwa Ibom</span></div>
                 <div className={styles.summitRow}><span>Cost</span><span>Free</span></div>
               </div>
@@ -131,7 +131,7 @@ export default function Home() {
               The Akwa Ibom Design Summit brings many of these people into one room. Across one day, you\'ll have access to expert conversations, practical training, a live market featuring design-related businesses, and opportunities to meet people working across the design and built environment.
             </p>
             <p className={styles.aboutDescription}>
-              It\'s a space to learn something useful, discover new businesses, ask questions, exchange ideas and meet people you may not have met otherwise. And yes, attendance is free.
+              It is a space to learn something useful, discover new businesses, ask questions, exchange ideas and meet people you may not have met otherwise. And Yes. Attendance is free.
             </p>
 
             <div className={styles.ideaCallout}>
@@ -154,7 +154,7 @@ export default function Home() {
             <h2 className={styles.whyTitle}>Different professions.<br />Shared interests.</h2>
           </div>
           <div className={styles.whyHeaderRight}>
-            <p>If you have a place in the design ecosystem, there\'s something here for you. The summit brings together people working across different parts of the industry.</p>
+            <p>If you have a place in the design ecosystem, there is something here for you. The summit brings together people working across different parts of the industry.</p>
           </div>
         </div>
 
@@ -198,7 +198,7 @@ export default function Home() {
             <div className={styles.experienceImageContent} style={{ position: 'relative', zIndex: 1 }}>
               <span className={styles.imageTag}>The Attendee Experience</span>
               <h3>Your day starts with a simple registration.</h3>
-              <p>Register for free before the event and receive the information you&apos;ll need ahead of October 17. When you arrive in Uyo, you&apos;ll check in and receive your attendee tag and souvenir.</p>
+              <p>Register for free before the event and receive the information you&apos;ll need ahead of October 23. When you arrive in Uyo, you&apos;ll check in and receive your attendee tag and souvenir.</p>
               <br />
               <p>From there, you can move between the main summit, training sessions, Interior Market and networking activities throughout the day.</p>
               <br />
@@ -531,7 +531,7 @@ export default function Home() {
           <p className={styles.sectionEyebrow} style={{ color: '#FF6B3D', zIndex: 1, position: 'relative' }}>READY TO BE IN THE ROOM?</p>
           <h2 className={styles.ctaTitle} style={{ zIndex: 1, position: 'relative' }}>One day. A lot to see,<br />learn and talk about.</h2>
           <p className={styles.ctaDesc}>
-            On October 17, designers, architects, engineers, creatives, businesses, students and other professionals will gather in Uyo to talk about the work behind beautiful spaces. You don\'t have to work in the industry. You just have to be interested enough to show up.
+            On October 23, designers, architects, engineers, creatives, businesses, students and other professionals will gather in Uyo to talk about the work behind beautiful spaces. You don\'t have to work in the industry. You just have to be interested enough to show up.
           </p>
           <div className={styles.ctaActions}>
             <a href="https://www.tixo.online/akwa-ibom-design-summit-2026" target="_blank" rel="noopener noreferrer" className={styles.ctaPrimaryBtn} style={{ textDecoration: 'none' }}>REGISTER FOR EVENT</a>
@@ -539,7 +539,7 @@ export default function Home() {
           </div>
           <h1 className={styles.bigFooterText}>AKWA IBOM<br />DESIGN SUMMIT</h1>
           <p className={styles.footerSubText}>
-            October 17, 2026 | Uyo, Akwa Ibom<br />
+            October 23, 2026 | Uyo, Akwa Ibom<br />
             Organised by Vizid: Live Luxury
           </p>
         </div>
