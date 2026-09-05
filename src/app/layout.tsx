@@ -12,8 +12,8 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "AKWAIBOM DESIGN SUMMIT 26 | Dec 2–3, 100% Free",
-  description: "Join the world's leading AkwaIbom interior design summit. 90 world-class speakers, 10,000+ global design executives, 16 hours of content. 100% Online, 100% Free.",
+  title: "AKWAIBOM DESIGN SUMMIT 26 | october 23, 100% Free",
+  description: "Join the world's leading AkwaIbom interior design summit. 90 world-class speakers, 10,000+ global design executives, 16 hours of content.  100% Free.",
 };
 
 export default function RootLayout({

@@ -17,13 +17,13 @@ const faqs = [
   { q: 'When is the summit?', a: 'The Akwa Ibom Design Summit takes place on October 23, 2026.' },
   { q: 'Where is the summit taking place?', a: 'The event will be held in Uyo, Akwa Ibom.' },
   { q: 'Who can attend?', a: 'The summit is open to interior designers, architects, civil engineers, students, creative professionals, business owners, real estate professionals, design enthusiasts and anyone interested in how beautiful spaces are designed and built.' },
-  { q: 'Do I need to be an interior designer to attend?', a: 'No. You don\'t need to work in interior design. If you\'re interested in design, architecture, construction, real estate, creativity or beautiful spaces, you\'re welcome.' },
+  { q: 'Do I need to be an interior designer to attend?', a: 'No. You don\'t need to work in interior design. If you are interested in design, architecture, construction, real estate, creativity or beautiful spaces, you are welcome.' },
   { q: 'How do I register?', a: 'Registration is free. Simply complete the registration form on the website to reserve your place.' },
   { q: 'Will there be training sessions?', a: 'Yes. There will be practical breakout sessions covering interior design fundamentals, graphic design essentials and personal branding for creatives.' },
-  { q: 'Can I visit the Interior Market without attending the summit?', a: 'The Interior Market is part of the summit experience. Register to attend the event and you\'ll be able to explore the participating exhibitors.' },
+  { q: 'Can I visit the Interior Market without attending the summit?', a: 'The Interior Market is part of the summit experience. Register to attend the event and you wll be able to explore the participating exhibitors.' },
   { q: 'How many exhibitors will be there?', a: 'The Display Interior Market will feature 20+ exhibitors across furniture, beddings, building materials, solar and lighting, gadgets, décor, fabrics and other design-related businesses.' },
   { q: 'Will I receive anything when I attend?', a: 'Yes. Every registered attendee will receive an event tag and a souvenir on the day.' },
-  { q: 'What should I bring?', a: 'Come with your phone, something to take notes with, your questions and, if you\'re attending for business, your contact details or business cards. Most importantly, come ready to meet people.' },
+  { q: 'What should I bring?', a: 'Come with your phone, something to take notes with, your questions and, if you are attending for business, your contact details or business cards. Most importantly, come ready to meet people.' },
   { q: 'Can students attend?', a: 'Absolutely. Students are welcome and can benefit from the training sessions, industry conversations, exhibitions and networking opportunities.' },
   { q: 'Can my business exhibit at the summit?', a: 'Yes. Businesses that fit within the event\'s design, construction, home, technology and related categories can explore exhibitor opportunities.' }
 ];
@@ -128,7 +128,7 @@ export default function Home() {
               It takes designers, architects, engineers, craftsmen, suppliers, business owners and clients making decisions that eventually become the places we live, work and gather.
             </p>
             <p className={styles.aboutDescription}>
-              The Akwa Ibom Design Summit brings many of these people into one room. Across one day, you\'ll have access to expert conversations, practical training, a live market featuring design-related businesses, and opportunities to meet people working across the design and built environment.
+              The Akwa Ibom Design Summit brings many of these people into one room. Across one day, you will have access to expert conversations, practical training, a live market featuring design-related businesses, and opportunities to meet people working across the design and built environment.
             </p>
             <p className={styles.aboutDescription}>
               It is a space to learn something useful, discover new businesses, ask questions, exchange ideas and meet people you may not have met otherwise. And Yes. Attendance is free.
@@ -186,7 +186,7 @@ export default function Home() {
             <h2 className={styles.sectionTitleLeft}>Four parts of the day.<br />Plenty to explore.</h2>
           </div>
           <div className={styles.experienceHeaderRight}>
-            <p>Your day starts with a simple registration. When you arrive in Uyo, you\'ll check in and receive your attendee tag and souvenir. From there, you can move between the main summit, training sessions, Interior Market and networking activities throughout the day.</p>
+            <p>Your day starts with a simple registration. When you arrive in Uyo, you wll check in and receive your attendee tag and souvenir. From there, you can move between the main summit, training sessions, Interior Market and networking activities throughout the day.</p>
           </div>
         </div>
 
@@ -235,7 +235,7 @@ export default function Home() {
             <h2 className={styles.testimonialsTitle}>Learn something<br />you can actually use.</h2>
           </div>
           <div className={styles.testimonialsRight}>
-            <p>The learning doesn\'t stop at the main stage. Choose from practical breakout sessions. Come with questions. Leave with ideas you can actually use.</p>
+            <p>The learning doesn't stop at the main stage. Choose from practical breakout sessions. Come with questions. Leave with ideas you can actually use.</p>
           </div>
         </div>
 
@@ -243,7 +243,7 @@ export default function Home() {
           <div className={styles.trainingCard}>
             <span className={styles.trainingTag}>Track 01</span>
             <h3 className={styles.trainingTitle}>Interior Design Fundamentals</h3>
-            <p className={styles.trainingDesc}>A practical introduction to the principles behind creating functional, thoughtful and visually appealing spaces. Whether you\'re just starting out or looking to strengthen your foundation, this session gives you useful concepts to work with.</p>
+            <p className={styles.trainingDesc}>A practical introduction to the principles behind creating functional, thoughtful and visually appealing spaces. Whether you are just starting out or looking to strengthen your foundation, this session gives you useful concepts to work with.</p>
           </div>
           <div className={styles.trainingCard}>
             <span className={styles.trainingTag}>Track 02</span>
@@ -268,7 +268,7 @@ export default function Home() {
             </h2>
           </div>
           <p className={styles.speakersHeaderDesc}>
-            Practitioners, thinkers and makers from across the design and built environment — gathered in one room for one day.
+            Practitioners, thinkers and makers from across the design and built environment gathered in one room for one day.
           </p>
         </div>
 
@@ -390,7 +390,7 @@ export default function Home() {
             <div className={styles.sponsorBannerInnerCard}>
               <h4 className={styles.sponsorCardTitle}>Choose the right partnership level.</h4>
               <p className={styles.sponsorCardText}>
-                Businesses that fit within the event\'s design, construction, home, technology and related categories can explore exhibitor opportunities.
+                Businesses that fit within the event's design, construction, home, technology and related categories can explore exhibitor opportunities.
               </p>
               <a
                 href="https://wa.me/2348140617722?text=Hi%2C%20I%27m%20interested%20in%20sponsoring%20or%20exhibiting%20at%20the%20AKWA%20IBOM%20DESIGN%20SUMMIT."
@@ -531,7 +531,7 @@ export default function Home() {
           <p className={styles.sectionEyebrow} style={{ color: '#FF6B3D', zIndex: 1, position: 'relative' }}>READY TO BE IN THE ROOM?</p>
           <h2 className={styles.ctaTitle} style={{ zIndex: 1, position: 'relative' }}>One day. A lot to see,<br />learn and talk about.</h2>
           <p className={styles.ctaDesc}>
-            On October 23, designers, architects, engineers, creatives, businesses, students and other professionals will gather in Uyo to talk about the work behind beautiful spaces. You don\'t have to work in the industry. You just have to be interested enough to show up.
+            On October 23, designers, architects, engineers, creatives, businesses, students and other professionals will gather in Uyo to talk about the work behind beautiful spaces. You don't have to work in the industry. You just have to be interested enough to show up.
           </p>
           <div className={styles.ctaActions}>
             <a href="https://www.tixo.online/akwa-ibom-design-summit-2026" target="_blank" rel="noopener noreferrer" className={styles.ctaPrimaryBtn} style={{ textDecoration: 'none' }}>REGISTER FOR EVENT</a>
