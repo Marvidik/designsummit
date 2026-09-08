@@ -1,16 +1,9 @@
 import React from 'react';
 import styles from './page.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 import CornerShape from '../components/CornerShape';
-
-const speakers = [
-  { name: 'Idika Victor Chinemerem ', title: 'Main Sponsor , 1st Keynote Speaker', company: 'CEO Vizid', photo: '/speak (3).jpeg' },
-  { name: 'Asian Dickson', title: 'Speaker', company: 'Branch Manager, Vizid(Uyo)|Event Manager AKDS', photo: '/speak (1).jpeg' },
-  { name: 'Elisha Nyong', title: 'Speaker - Psychology of Arts', company: 'Contemporary Realist and Figurative Painter', photo: '/speak (4).jpeg' },
-  { name: 'Benneth Onyemachi Ugochukwu', title: 'Speaker - Graphics Design Essentials', company: 'Graphics and Brand Designer| Tech career mentor', photo: '/speak (2).jpeg' },
-  // { name: 'James Toshiba', title: 'Lead Interior Architect', company: 'Spaces', photo: '/speak (5).jpeg' },
-  // { name: 'Elena Hart', title: 'Founder', company: 'Hart Design', photo: '/speak (6).jpeg' },
-];
+import { speakers } from '../data/speakers';
 
 const faqs = [
   { q: 'Is the Akwa Ibom Design Summit free?', a: 'Yes. Registration and attendance are free.' },
@@ -70,7 +63,7 @@ export default function Home() {
                 Register for Event
               </a>
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfIotH96fxRokMtDy4HzuYDio0hcnUrSZNHmsZTWuLLu_9-hw/viewform?usp=publish-editor"
+                href="https://chat.whatsapp.com/H3gsshLYU3jBN14rGyDoAK"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.secondaryButton}
@@ -281,7 +274,7 @@ export default function Home() {
           <div className={styles.fadeLeft} />
           <div className={styles.speakersTrack}>
             {[...speakers, ...speakers].map((speaker, idx) => (
-              <div key={idx} className={styles.speakerCard}>
+              <Link href={`/speakers/${speaker.id}`} key={idx} className={styles.speakerCard} style={{ textDecoration: 'none' }}>
                 <div className={styles.speakerPhoto}>
                   <img
                     src={speaker.photo}
@@ -320,7 +313,7 @@ export default function Home() {
                     </>
                   )}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           <div className={styles.fadeRight} />
@@ -429,7 +422,7 @@ export default function Home() {
             <p className={styles.classCtaDesc}>
               Join our specialized design masterclass to gain deeper insights, practical techniques, and hands-on experience from industry leaders. This intensive session is designed for those who want to master their craft and accelerate their creative career.
             </p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIotH96fxRokMtDy4HzuYDio0hcnUrSZNHmsZTWuLLu_9-hw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className={styles.classCtaButton}>Register for Class</a>
+            <a href="https://chat.whatsapp.com/H3gsshLYU3jBN14rGyDoAK" target="_blank" rel="noopener noreferrer" className={styles.classCtaButton}>Register for Class</a>
           </div>
         </div>
       </section>
@@ -540,7 +533,7 @@ export default function Home() {
           </p>
           <div className={styles.ctaActions}>
             <a href="https://www.tixo.online/akwa-ibom-design-summit-2026" target="_blank" rel="noopener noreferrer" className={styles.ctaPrimaryBtn} style={{ textDecoration: 'none' }}>REGISTER FOR EVENT</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIotH96fxRokMtDy4HzuYDio0hcnUrSZNHmsZTWuLLu_9-hw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className={styles.ctaSecondaryBtn} style={{ textDecoration: 'none' }}>REGISTER FOR CLASS</a>
+            <a href="https://chat.whatsapp.com/H3gsshLYU3jBN14rGyDoAK" target="_blank" rel="noopener noreferrer" className={styles.ctaSecondaryBtn} style={{ textDecoration: 'none' }}>REGISTER FOR CLASS</a>
           </div>
           <h1 className={styles.bigFooterText}>AKWA IBOM<br />DESIGN SUMMIT</h1>
           <p className={styles.footerSubText}>

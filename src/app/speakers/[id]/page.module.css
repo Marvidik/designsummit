@@ -1,0 +1,249 @@
+.container {
+  min-height: 100vh;
+  background-color: #050505;
+  color: #FAFAFA;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-inter, sans-serif);
+}
+
+.backgroundEffects {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glowOrb1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(255, 107, 61, 0.15) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(80px);
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+.glowOrb2 {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(41, 98, 255, 0.1) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(100px);
+  animation: float 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(30px) scale(1.05); }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 5%;
+}
+
+.header {
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.backButton:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(-4px);
+}
+
+.profileGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 900px) {
+  .profileGrid {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 6rem;
+  }
+}
+
+.imageColumn {
+  position: relative;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 24px;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.imageGlow {
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #FF6B3D, #2962FF);
+  z-index: 0;
+  opacity: 0.4;
+  filter: blur(15px);
+  border-radius: inherit;
+  transition: opacity 0.5s ease;
+}
+
+.imageWrapper:hover .imageGlow {
+  opacity: 0.7;
+}
+
+.speakerImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 24px;
+  transition: transform 0.7s ease;
+}
+
+.imageWrapper:hover .speakerImage {
+  transform: scale(1.03);
+}
+
+.imageBorder {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.badges {
+  margin-bottom: 1.5rem;
+}
+
+.badgePrimary {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 107, 61, 0.1);
+  color: #FF6B3D;
+  border: 1px solid rgba(255, 107, 61, 0.2);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.name {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(to right, #FFFFFF, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.titleCompany {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  color: #E0E0E0;
+  font-weight: 500;
+  margin: 0;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.company {
+  font-size: 1.1rem;
+  color: #A0A0A0;
+  margin: 0;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  margin-bottom: 2.5rem;
+}
+
+.bioSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.bioParagraph {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.registerButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: #FF6B3D;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 61, 0.2);
+}
+
+.registerButton:hover {
+  background: #ff7f59;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 61, 0.4);
+}
