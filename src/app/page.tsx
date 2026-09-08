@@ -4,12 +4,12 @@ import Image from 'next/image';
 import CornerShape from '../components/CornerShape';
 
 const speakers = [
-  { name: 'Larissa Murmann', title: 'Principal Designer', company: 'Studio A', photo: '/speaker1.jpg' },
-  { name: 'Federico Cohen Freue', title: 'Creative Director', company: 'DesignSpace', photo: '/speaker2.jpg' },
-  { name: 'Lucrecia Borgonovo', title: 'Head of Architecture', company: 'Urban Build', photo: '/speaker3.jpg' },
-  { name: 'Jacqui Canney', title: 'Chief Design Officer', company: 'Innovate Interiors', photo: '/speaker4.jpg' },
-  { name: 'James Toshiba', title: 'Lead Interior Architect', company: 'Spaces', photo: '/speaker1.jpg' },
-  { name: 'Elena Hart', title: 'Founder', company: 'Hart Design', photo: '/speaker3.jpg' },
+  { name: 'Idika Victor Chinemerem ', title: 'Main Sponsor , 1st Keynote Speaker', company: 'CEO Vizid', photo: '/speak (3).jpeg' },
+  { name: 'Asian Dickson', title: 'Speaker', company: 'Branch Manager, Vizid(Uyo)|Event Manager AKDS', photo: '/speak (1).jpeg' },
+  { name: 'Elisha Nyong', title: 'Speaker - Psychology of Arts', company: 'Contemporary Realist and Figurative Painter', photo: '/speak (4).jpeg' },
+  { name: 'Benneth Onyemachi Ugochukwu', title: 'Speaker - Graphics Design Essentials', company: 'Graphics and Brand Designer| Tech career mentor', photo: '/speak (2).jpeg' },
+  // { name: 'James Toshiba', title: 'Lead Interior Architect', company: 'Spaces', photo: '/speak (5).jpeg' },
+  // { name: 'Elena Hart', title: 'Founder', company: 'Hart Design', photo: '/speak (6).jpeg' },
 ];
 
 const faqs = [
@@ -29,7 +29,7 @@ const faqs = [
 ];
 
 // flip to true when you're ready to reveal — nothing else to touch
-const SPEAKERS_REVEALED = false;
+const SPEAKERS_REVEALED = true;
 
 
 export default function Home() {
@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-       <div className={styles.sectionDivider}>
+      <div className={styles.sectionDivider}>
         <span className={styles.sectionDividerLine} />
         <span className={styles.sectionDividerMark}>
           <span className={styles.sectionDividerDash} />
@@ -255,6 +255,11 @@ export default function Home() {
             <h3 className={styles.trainingTitle}>Personal Branding for Creatives</h3>
             <p className={styles.trainingDesc}>Your work matters, but so does how people see and remember you. This session looks at the practical side of building a personal brand as a creative professional, from positioning yourself to communicating what you do.</p>
           </div>
+          <div className={styles.trainingCard}>
+            <span className={styles.trainingTag}>Track 04</span>
+            <h3 className={styles.trainingTitle}>Psychology of Arts</h3>
+            <p className={styles.trainingDesc}>What drives artistic choices? How do colors, shapes, and compositions affect our perception and emotions? This session explores the psychology behind art, helping you understand the science that makes design powerful.</p>
+          </div>
         </div>
       </section>
 
@@ -275,49 +280,49 @@ export default function Home() {
         <div className={styles.speakersCarouselContainer}>
           <div className={styles.fadeLeft} />
           <div className={styles.speakersTrack}>
-        {[...speakers, ...speakers].map((speaker, idx) => (
-          <div key={idx} className={styles.speakerCard}>
-            <div className={styles.speakerPhoto}>
-              <img
-                src={speaker.photo}
-                alt={SPEAKERS_REVEALED ? speaker.name : 'Speaker to be revealed'}
-                className={`${styles.speakerImg} ${!SPEAKERS_REVEALED ? styles.speakerImgBlurred : ''}`}
-              />
-              <div className={styles.speakerWatermark}>
-                <CornerShape color="rgba(255,255,255,0.15)" className={styles.speakerWatermarkShape} />
-              </div>
-              <span className={styles.speakerBadge}>
-                {String(((idx % speakers.length) + 1)).padStart(2, '0')}
-              </span>
-
-              {!SPEAKERS_REVEALED && (
-                <div className={styles.speakerRevealOverlay}>
-                  <span className={styles.speakerRevealBadge}>
-                    <span className={styles.speakerRevealDot} />
-                    Revealing soon
+            {[...speakers, ...speakers].map((speaker, idx) => (
+              <div key={idx} className={styles.speakerCard}>
+                <div className={styles.speakerPhoto}>
+                  <img
+                    src={speaker.photo}
+                    alt={SPEAKERS_REVEALED ? speaker.name : 'Speaker to be revealed'}
+                    className={`${styles.speakerImg} ${!SPEAKERS_REVEALED ? styles.speakerImgBlurred : ''}`}
+                  />
+                  <div className={styles.speakerWatermark}>
+                    <CornerShape color="rgba(255,255,255,0.15)" className={styles.speakerWatermarkShape} />
+                  </div>
+                  <span className={styles.speakerBadge}>
+                    {String(((idx % speakers.length) + 1)).padStart(2, '0')}
                   </span>
-                </div>
-              )}
-            </div>
 
-            <div className={styles.speakerInfo}>
-              <div className={styles.speakerAccentLine} />
-              {SPEAKERS_REVEALED ? (
-                <>
-                  <h3 className={styles.speakerName}>{speaker.name}</h3>
-                  <p className={styles.speakerRole}>{speaker.title}</p>
-                  <p className={styles.speakerCompanyText}>{speaker.company}</p>
-                </>
-              ) : (
-                <>
-                  <h3 className={styles.speakerName}>Speaker {String(((idx % speakers.length) + 1)).padStart(2, '0')}</h3>
-                  <p className={styles.speakerRole}>Announcement coming</p>
-                </>
-              )}
-            </div>
-            </div>
-          ))}
-        </div>
+                  {!SPEAKERS_REVEALED && (
+                    <div className={styles.speakerRevealOverlay}>
+                      <span className={styles.speakerRevealBadge}>
+                        <span className={styles.speakerRevealDot} />
+                        Revealing soon
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <div className={styles.speakerInfo}>
+                  <div className={styles.speakerAccentLine} />
+                  {SPEAKERS_REVEALED ? (
+                    <>
+                      <h3 className={styles.speakerName}>{speaker.name}</h3>
+                      <p className={styles.speakerRole}>{speaker.title}</p>
+                      <p className={styles.speakerCompanyText}>{speaker.company}</p>
+                    </>
+                  ) : (
+                    <>
+                      <h3 className={styles.speakerName}>Speaker {String(((idx % speakers.length) + 1)).padStart(2, '0')}</h3>
+                      <p className={styles.speakerRole}>Announcement coming</p>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
           <div className={styles.fadeRight} />
         </div>
       </section>
@@ -337,7 +342,7 @@ export default function Home() {
               You can discover new brands, speak directly with business owners, ask questions about their products and find things that could work for your next project, home or business.
             </p>
             <div className={styles.heroActions} style={{ justifyContent: 'flex-start', marginTop: '2rem' }}>
-              <a  href="https://wa.me/2348140617722?text=Hi%2C%20I%27m%20interested%20in%20sponsoring%20or%20exhibiting%20at%20the%20AKWA%20IBOM%20DESIGN%20SUMMIT." className={styles.primaryButton}>Become an Exhibitor</a>
+              <a href="https://wa.me/2348140617722?text=Hi%2C%20I%27m%20interested%20in%20sponsoring%20or%20exhibiting%20at%20the%20AKWA%20IBOM%20DESIGN%20SUMMIT." className={styles.primaryButton}>Become an Exhibitor</a>
             </div>
           </div>
           <div className={styles.marketImage}>
@@ -405,7 +410,7 @@ export default function Home() {
         </div>
       </section>
 
-       <div className={styles.sectionDivider}>
+      <div className={styles.sectionDivider}>
         <span className={styles.sectionDividerLine} />
         <span className={styles.sectionDividerMark}>
           <span className={styles.sectionDividerDash} />
@@ -429,7 +434,7 @@ export default function Home() {
         </div>
       </section>
 
-       <div className={styles.sectionDivider}>
+      <div className={styles.sectionDivider}>
         <span className={styles.sectionDividerLine} />
         <span className={styles.sectionDividerMark}>
           <span className={styles.sectionDividerDash} />
