@@ -61,5 +61,16 @@ export const speakers: Speaker[] = [
       'Over the course of his career, Benjoe has partnered with more than 100 brands across Africa, Europe, North America, and the UK. His multi-disciplinary portfolio spans diverse sectors, including Fintech, Web3, Food & Agriculture, Education, Fashion, Lifestyle, and Advertising & Marketing.',
       'Beyond design, Benjoe is a dedicated capacity builder in the technology ecosystem. He actively mentors aspiring professionals and tech enthusiasts, equipping them with actionable guidance to navigate and accelerate their career paths in tech.'
     ]
+  },
+  {
+    id: 'thankgod-bosseman',
+    name: 'ThankGod Bosseman',
+    title: 'Speaker',
+    company: 'AI Engineer at Innovative Finance Initiative (IFI)',
+    photo: '/speak (5).jpeg',
+    bio: [
+      'Meet ThankGod Bosseman, an AI Engineer, technology leader, and entrepreneur known professionally as Bosseman. He works across artificial intelligence, software, data, and digital products, helping organizations and emerging founders use technology to build better businesses.',
+      'Through his work and growing personal brand, Bosseman has become passionate about helping young professionals understand how to position their expertise, tell their stories, and create meaningful opportunities through personal branding.'
+    ]
   }
 ];

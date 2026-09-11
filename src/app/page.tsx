@@ -3,6 +3,7 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import CornerShape from '../components/CornerShape';
+import SponsorshipSection from '../components/SponsorshipSection';
 import { speakers } from '../data/speakers';
 
 const faqs = [
@@ -402,6 +403,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <SponsorshipSection />
 
       <div className={styles.sectionDivider}>
         <span className={styles.sectionDividerLine} />
