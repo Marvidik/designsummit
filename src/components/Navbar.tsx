@@ -32,7 +32,6 @@ export default function Navbar() {
         {/* CTA */}
         <div className={styles.actions}>
           <a href="https://www.tixo.online/akwa-ibom-design-summit-2026" target="_blank" rel="noopener noreferrer" className={styles.ctaBtn}>Register for Event</a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIotH96fxRokMtDy4HzuYDio0hcnUrSZNHmsZTWuLLu_9-hw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className={styles.ctaBtnSecondary}>Register for Class</a>
           <button
             className={styles.hamburger}
             onClick={() => setMenuOpen(!menuOpen)}
@@ -53,7 +52,6 @@ export default function Navbar() {
           <a href="#speakers" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Speakers</a>
           <a href="#sponsors" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Sponsors</a>
           <a href="https://www.tixo.online/akwa-ibom-design-summit-2026" target="_blank" rel="noopener noreferrer" className={styles.mobileCta} onClick={() => setMenuOpen(false)}>Register for Event</a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIotH96fxRokMtDy4HzuYDio0hcnUrSZNHmsZTWuLLu_9-hw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className={styles.mobileCtaSecondary} onClick={() => setMenuOpen(false)}>Register for Class</a>
         </div>
       )}
     </header>

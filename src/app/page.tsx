@@ -61,16 +61,18 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className={styles.primaryButton}
               >
-                Register for Event
+                <span className={styles.primaryButtonIcon}>✦</span>
+                Register for Free
               </a>
-              <a
-                href="https://chat.whatsapp.com/H3gsshLYU3jBN14rGyDoAK"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.secondaryButton}
-              >
-                Register for Class
+              <a href="#programme" className={styles.heroGhostLink}>
+                Explore Programme
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
+            </div>
+
+            <div className={styles.heroTrustRow}>
+              <span className={styles.heroTrustDot} />
+              <span className={styles.heroTrustText}>Free admission · 1 day · 4 training tracks · 20+ exhibitors</span>
             </div>
           </div>
 
@@ -257,6 +259,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── MASTERCLASS CONCLUDED ── */}
+      <section className={styles.concludedSection}>
+        <div className={styles.concludedInner}>
+          <div className={styles.concludedBadge}>
+            <span className={styles.concludedBadgeDot} />
+            Session Completed
+          </div>
+
+          <div className={styles.concludedContent}>
+            <div className={styles.concludedLeft}>
+              <h2 className={styles.concludedTitle}>The Pre-Summit Masterclass Has Concluded</h2>
+              <p className={styles.concludedDesc}>
+                Our exclusive pre-summit masterclass sessions — covering Interior Design Fundamentals,
+                Graphic Design Essentials, Personal Branding and the Psychology of Arts — were
+                held ahead of October 23. Registration for those sessions is now closed.
+              </p>
+              <p className={styles.concludedDesc}>
+                If you missed it, don't worry. The full summit on <strong>October 23</strong> is still open and
+                free for everyone to attend. Hands-on training tracks covering these same topics will
+                be available on the day.
+              </p>
+              <a
+                href="https://www.tixo.online/akwa-ibom-design-summit-2026"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.concludedBtn}
+              >
+                Register for the Summit Instead
+              </a>
+            </div>
+
+            <div className={styles.concludedRight}>
+              <div className={styles.concludedStat}>
+                <span className={styles.concludedStatNum}>4</span>
+                <span className={styles.concludedStatLabel}>Tracks Delivered</span>
+              </div>
+              <div className={styles.concludedDivider} />
+              <div className={styles.concludedStat}>
+                <span className={styles.concludedStatNum}>✓</span>
+                <span className={styles.concludedStatLabel}>Masterclass Complete</span>
+              </div>
+              <div className={styles.concludedDivider} />
+              <div className={styles.concludedStat}>
+                <span className={styles.concludedStatNum}>Oct 23</span>
+                <span className={styles.concludedStatLabel}>Summit Still On</span>
+              </div>
+              <div className={styles.concludedNote}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                The summit on October 23 includes live training tracks open to all registered attendees.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── SPEAKERS ── */}
       <section className={styles.speakers} id="speakers">
         <div className={styles.speakersHeader}>
@@ -415,17 +472,51 @@ export default function Home() {
         <span className={styles.sectionDividerLine} />
       </div>
 
-      {/* ── CLASS CTA ── */}
+      {/* ── SPONSOR / EXHIBITOR CTA ── */}
       <section className={styles.classCtaSection}>
         <div className={styles.classCtaContainer}>
+          {/* decorative shapes */}
+          <div className={styles.classCtaDeco1} />
+          <div className={styles.classCtaDeco2} />
 
           <div className={styles.classCtaContent}>
-            <p className={styles.classCtaEyebrow}>EXCLUSIVE MASTERCLASS</p>
-            <h2 className={styles.classCtaTitle}>Take Your Skills to the Next Level</h2>
+            <p className={styles.classCtaEyebrow}>PARTNERSHIP OPPORTUNITIES</p>
+            <h2 className={styles.classCtaTitle}>Put Your Brand in the Room Where Ideas Move</h2>
             <p className={styles.classCtaDesc}>
-              Join our specialized design masterclass to gain deeper insights, practical techniques, and hands-on experience from industry leaders. This intensive session is designed for those who want to master their craft and accelerate their creative career.
+              The Akwa Ibom Design Summit brings together designers, architects, engineers, business owners
+              and creatives under one roof. Sponsoring or exhibiting puts your brand directly in front of
+              the people shaping beautiful spaces across the region.
             </p>
-            <a href="https://chat.whatsapp.com/H3gsshLYU3jBN14rGyDoAK" target="_blank" rel="noopener noreferrer" className={styles.classCtaButton}>Register for Class</a>
+
+            <div className={styles.classCtaCards}>
+              <div className={styles.classCtaCard}>
+                <span className={styles.classCtaCardIcon}>🏢</span>
+                <h3 className={styles.classCtaCardTitle}>Become a Sponsor</h3>
+                <p className={styles.classCtaCardText}>Align your brand with a flagship design event and reach a targeted audience of creative and business professionals.</p>
+                <a
+                  href="https://wa.me/2348140617722?text=Hi%2C%20I%27m%20interested%20in%20sponsoring%20the%20AKWA%20IBOM%20DESIGN%20SUMMIT."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.classCtaButton}
+                >
+                  Enquire about Sponsorship
+                </a>
+              </div>
+
+              <div className={styles.classCtaCard}>
+                <span className={styles.classCtaCardIcon}>🛍️</span>
+                <h3 className={styles.classCtaCardTitle}>Become an Exhibitor</h3>
+                <p className={styles.classCtaCardText}>Showcase your products at the Display Interior Market and speak directly with potential buyers, partners and collaborators.</p>
+                <a
+                  href="https://wa.me/2348140617722?text=Hi%2C%20I%27m%20interested%20in%20exhibiting%20at%20the%20AKWA%20IBOM%20DESIGN%20SUMMIT."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.classCtaButtonOutline}
+                >
+                  Enquire about Exhibiting
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -536,7 +627,6 @@ export default function Home() {
           </p>
           <div className={styles.ctaActions}>
             <a href="https://www.tixo.online/akwa-ibom-design-summit-2026" target="_blank" rel="noopener noreferrer" className={styles.ctaPrimaryBtn} style={{ textDecoration: 'none' }}>REGISTER FOR EVENT</a>
-            <a href="https://chat.whatsapp.com/H3gsshLYU3jBN14rGyDoAK" target="_blank" rel="noopener noreferrer" className={styles.ctaSecondaryBtn} style={{ textDecoration: 'none' }}>REGISTER FOR CLASS</a>
           </div>
           <h1 className={styles.bigFooterText}>AKWA IBOM<br />DESIGN SUMMIT</h1>
           <p className={styles.footerSubText}>
