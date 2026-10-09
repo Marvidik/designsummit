@@ -98,6 +98,35 @@ export default function Home() {
         <span className={styles.sectionDividerLine} />
       </div>
 
+      {/* ── I WILL ATTEND CTA (MODERN REDESIGN) ── */}
+      <section className={styles.iWillAttendSection} id="i-will-attend">
+        <div className={styles.iWillAttendModernGrid}>
+          <div className={styles.iWillAttendVisual}>
+            <div className={styles.badgeMockupWrapper}>
+              <div className={styles.badgeGlow}></div>
+              <img src="/iwill.png" alt="I Will Attend Badge" className={styles.badgeMockupImg} />
+              <div className={styles.badgeUserPhotoPlaceholder}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                <span>Add Your Photo</span>
+              </div>
+            </div>
+          </div>
+          <div className={styles.iWillAttendText}>
+            <p className={styles.sectionEyebrow}>SHARE THE EXCITEMENT</p>
+            <h2 className={styles.sectionTitleLeft}>Get Your Custom<br />"I Will Attend" Badge</h2>
+            <p className={styles.aboutDescription}>
+              Let your network know you're joining the Akwa Ibom Design Summit. Upload your photo and instantly generate a personalized event graphic to share on Instagram, Twitter, and Facebook.
+            </p>
+            <div className={styles.heroActions}>
+              <Link href="/i-will-attend" className={styles.primaryButton}>
+                <span className={styles.primaryButtonIcon}>📷</span>
+                Create Your Badge
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── ABOUT THE SUMMIT ── */}
       <section className={styles.aboutSection} id="about">
         {/* <img src="/brand2.png" alt="Decorative Background" style={{ position: 'absolute', top: '10%', left: '-5%', width: '300px', transform: 'rotate(15deg)', opacity: 0.85, pointerEvents: 'none', zIndex: 0 }} /> */}
@@ -612,6 +641,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* ── CTA / REGISTRATION ── */}
       <section className={styles.ctaSection} id="register">

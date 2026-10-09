@@ -2648,3 +2648,125 @@
     background: linear-gradient(to right, transparent, #FF6B3D 8%, #FF6B3D 92%, transparent);
   }
 }
+
+/* ── I WILL ATTEND SECTION (MODERN REDESIGN) ── */
+.iWillAttendSection {
+  width: 100%;
+  padding: 4rem 1.25rem 2rem;
+  background: transparent;
+  position: relative;
+}
+
+.iWillAttendModernGrid {
+  max-width: 1180px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #ffffff, #f9fafb);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  border-radius: 1.5rem;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glassmorphism subtle glow */
+.iWillAttendModernGrid::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 60%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255,107,61,0.04) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.iWillAttendVisual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.badgeMockupWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(17, 24, 39, 0.15);
+  transform: rotate(-3deg);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.badgeMockupWrapper:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.badgeGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 107, 61, 0.3) 0%, transparent 70%);
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.badgeMockupImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.badgeUserPhotoPlaceholder {
+  position: absolute;
+  top: 34.76%;
+  left: 32.74%;
+  width: 34.46%;
+  height: 27.52%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #FF6B3D;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-align: center;
+  border: 1px dashed rgba(255, 107, 61, 0.5);
+  transition: background 0.3s;
+}
+
+.badgeMockupWrapper:hover .badgeUserPhotoPlaceholder {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.iWillAttendText {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .iWillAttendModernGrid {
+    grid-template-columns: 0.85fr 1.15fr;
+    padding: 4rem;
+    gap: 5rem;
+  }
+  
+  .badgeMockupWrapper {
+    transform: rotate(-4deg);
+  }
+}
