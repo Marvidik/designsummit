@@ -82,6 +82,35 @@ export default function IWillAttendPage() {
     };
   }, []);
 
+  const triggerDownload = (canvas: HTMLCanvasElement) => {
+    canvas.toBlob((blob) => {
+      if (!blob) return;
+      const file = new File([blob], 'i-will-attend-design-summit.png', { type: 'image/png' });
+      
+      const downloadFallback = () => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.download = 'i-will-attend-design-summit.png';
+        link.href = url;
+        document.body.appendChild(link); // Required for iOS
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 100);
+      };
+
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator.share({
+          files: [file],
+          title: 'I Will Attend Design Summit',
+        }).catch(() => {
+          downloadFallback();
+        });
+      } else {
+        downloadFallback();
+      }
+    }, 'image/png');
+  };
+
   const downloadImage = () => {
     if (!containerRef.current) return;
     
@@ -148,17 +177,10 @@ export default function IWillAttendPage() {
         ctx.drawImage(uImg, finalX, finalY, finalWidth, finalHeight);
         ctx.restore();
         
-        // Save
-        const link = document.createElement('a');
-        link.download = 'i-will-attend-design-summit.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+        triggerDownload(canvas);
       } else {
         // Just save background
-        const link = document.createElement('a');
-        link.download = 'i-will-attend-design-summit.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+        triggerDownload(canvas);
       }
     };
   };
