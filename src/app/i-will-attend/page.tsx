@@ -11,6 +11,8 @@ export default function IWillAttendPage() {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
+  const [generatedImage, setGeneratedImage] = useState<string | null>(null);
+  const [isGenerating, setIsGenerating] = useState(false);
   
   const containerRef = useRef<HTMLDivElement>(null);
   const userImageRef = useRef<HTMLImageElement>(null);
@@ -82,41 +84,16 @@ export default function IWillAttendPage() {
     };
   }, []);
 
-  const triggerDownload = (canvas: HTMLCanvasElement) => {
-    canvas.toBlob((blob) => {
-      if (!blob) return;
-      const file = new File([blob], 'i-will-attend-design-summit.png', { type: 'image/png' });
-      
-      const downloadFallback = () => {
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.download = 'i-will-attend-design-summit.png';
-        link.href = url;
-        document.body.appendChild(link); // Required for iOS
-        link.click();
-        document.body.removeChild(link);
-        setTimeout(() => URL.revokeObjectURL(url), 100);
-      };
-
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        navigator.share({
-          files: [file],
-          title: 'I Will Attend Design Summit',
-        }).catch(() => {
-          downloadFallback();
-        });
-      } else {
-        downloadFallback();
-      }
-    }, 'image/png');
-  };
-
   const downloadImage = () => {
     if (!containerRef.current) return;
+    setIsGenerating(true);
     
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) {
+      setIsGenerating(false);
+      return;
+    }
     
     // Original iwill.png size
     const bgImage = new Image();
@@ -177,10 +154,14 @@ export default function IWillAttendPage() {
         ctx.drawImage(uImg, finalX, finalY, finalWidth, finalHeight);
         ctx.restore();
         
-        triggerDownload(canvas);
+        const dataUrl = canvas.toDataURL('image/png');
+        setGeneratedImage(dataUrl);
+        setIsGenerating(false);
       } else {
         // Just save background
-        triggerDownload(canvas);
+        const dataUrl = canvas.toDataURL('image/png');
+        setGeneratedImage(dataUrl);
+        setIsGenerating(false);
       }
     };
   };
@@ -264,14 +245,42 @@ export default function IWillAttendPage() {
                     style={{ display: 'none' }} 
                   />
                 </label>
-                <button className={styles.primaryBtn} onClick={downloadImage}>
-                  Download Badge
+                <button className={styles.primaryBtn} onClick={downloadImage} disabled={isGenerating}>
+                  {isGenerating ? 'Generating...' : 'Download Badge'}
                 </button>
               </div>
             </>
           )}
         </div>
       </div>
+
+      {generatedImage && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <h3 className={styles.modalTitle}>Your Badge is Ready!</h3>
+            <p className={styles.modalDesc}>
+              <strong>Mobile users:</strong> Tap and hold the image below to save it to your photos.
+            </p>
+            <img src={generatedImage} alt="Generated Badge" className={styles.modalImage} />
+            <div className={styles.modalActions}>
+              <button className={styles.secondaryBtn} onClick={() => setGeneratedImage(null)}>
+                Close
+              </button>
+              <button 
+                className={styles.primaryBtn} 
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.download = 'i-will-attend-design-summit.png';
+                  link.href = generatedImage;
+                  link.click();
+                }}
+              >
+                Force Download (Desktop)
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
