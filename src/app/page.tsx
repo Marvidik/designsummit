@@ -345,81 +345,130 @@ export default function Home() {
 
       {/* ── SPEAKERS ── */}
       <section className={styles.speakers} id="speakers">
-        <div className={styles.speakersHeader}>
-          <div>
-            <p className={styles.sectionEyebrow}>The Summit</p>
-            <h2 className={styles.sectionTitleCenter} style={{ textAlign: 'left', marginBottom: '0' }}>
-              Meet the speakers
-            </h2>
-          </div>
-          <p className={styles.speakersHeaderDesc}>
-            Practitioners, thinkers and makers from across the design and built environment gathered in one room for one day.
-          </p>
-        </div>
+        <div className={styles.speakersInner}>
 
-        <div className={styles.speakersCarouselContainer}>
-          <div className={styles.fadeLeft} />
-          <div className={styles.speakersTrack}>
-            {[...speakers, ...speakers].map((speaker, idx) => {
-              const isEven = idx % 2 === 0;
-              const isKeynote = !!speaker.isKeynote;
-              return (
-                <Link
-                  href={`/speakers/${speaker.id}`}
-                  key={idx}
-                  className={`${styles.speakerCard} ${isEven ? styles.cardDown : styles.cardUp} ${isKeynote ? styles.cardMain : ''}`}
-                  style={{ textDecoration: 'none' }}
-                >
-                  <div className={styles.speakerPhoto}>
-                    <img
-                      src={speaker.photo}
-                      alt={SPEAKERS_REVEALED ? speaker.name : 'Speaker to be revealed'}
-                      className={`${styles.speakerImg} ${!SPEAKERS_REVEALED ? styles.speakerImgBlurred : ''}`}
-                    />
-                    <div className={styles.speakerWatermark}>
-                      <CornerShape color="rgba(255,255,255,0.15)" className={styles.speakerWatermarkShape} />
-                    </div>
-                    <span className={styles.speakerBadge}>
-                      {String(((idx % speakers.length) + 1)).padStart(2, '0')}
+          {/* Header */}
+          <div className={styles.speakersHeader}>
+            <div>
+              <p className={styles.sectionEyebrow}>The Summit</p>
+              <h2 className={styles.speakersHeaderTitle}>Meet the speakers</h2>
+            </div>
+            <p className={styles.speakersHeaderDesc}>
+              Practitioners, thinkers and makers from across the design and built environment gathered in one room for one day.
+            </p>
+          </div>
+
+          {/* ── KEYNOTE / FEATURED SPEAKERS ── */}
+          <div className={styles.speakersFeaturedRow}>
+            {speakers.filter(s => s.isKeynote).map((speaker, idx) => (
+              <Link
+                href={`/speakers/${speaker.id}`}
+                key={speaker.id}
+                className={styles.speakerCardKeynote}
+                style={{ textDecoration: 'none' }}
+              >
+                <img
+                  src={speaker.photo}
+                  alt={SPEAKERS_REVEALED ? speaker.name : 'Speaker to be revealed'}
+                  className={`${styles.speakerImg} ${!SPEAKERS_REVEALED ? styles.speakerImgBlurred : ''}`}
+                />
+                <span className={styles.speakerBadge}>
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <span className={styles.keynoteBadge}>Keynote</span>
+
+                {!SPEAKERS_REVEALED && (
+                  <div className={styles.speakerRevealOverlay}>
+                    <span className={styles.speakerRevealBadge}>
+                      <span className={styles.speakerRevealDot} />
+                      Revealing soon
                     </span>
-
-                    {isKeynote && (
-                      <span className={styles.keynoteBadge}>
-                        Keynote
-                      </span>
-                    )}
-
-                    {!SPEAKERS_REVEALED && (
-                      <div className={styles.speakerRevealOverlay}>
-                        <span className={styles.speakerRevealBadge}>
-                          <span className={styles.speakerRevealDot} />
-                          Revealing soon
-                        </span>
-                      </div>
-                    )}
                   </div>
+                )}
 
-                  <div className={styles.speakerInfo}>
-                    <div className={styles.speakerAccentLine} />
-                    {SPEAKERS_REVEALED ? (
-                      <>
-                        <h3 className={styles.speakerName}>{speaker.name}</h3>
-                        <p className={styles.speakerRole}>{speaker.title}</p>
-                        <p className={styles.speakerCompanyText}>{speaker.company}</p>
-                        <span className={styles.viewBioLink}>View Biography →</span>
-                      </>
-                    ) : (
-                      <>
-                        <h3 className={styles.speakerName}>Speaker {String(((idx % speakers.length) + 1)).padStart(2, '0')}</h3>
-                        <p className={styles.speakerRole}>Announcement coming</p>
-                      </>
-                    )}
-                  </div>
-                </Link>
-              );
-            })}
+                <div className={styles.speakerInfo}>
+                  <div className={styles.speakerAccentLine} />
+                  {SPEAKERS_REVEALED ? (
+                    <>
+                      <h3 className={styles.speakerName}>{speaker.name}</h3>
+                      <p className={styles.speakerRole}>{speaker.title}</p>
+                      <p className={styles.speakerCompanyText}>{speaker.company}</p>
+                      <span className={styles.viewBioLink}>View Biography →</span>
+                    </>
+                  ) : (
+                    <h3 className={styles.speakerName}>Keynote Speaker</h3>
+                  )}
+                </div>
+              </Link>
+            ))}
           </div>
-          <div className={styles.fadeRight} />
+
+          {/* Divider label */}
+          <div className={styles.speakersSectionLabel}>
+            <span className={styles.speakersSectionLabelLine} />
+            <span className={styles.speakersSectionLabelText}>Also Speaking</span>
+            <span className={styles.speakersSectionLabelLine} />
+          </div>
+
+          {/* ── SUPPORTING SPEAKERS MARQUEE ── */}
+          <div className={styles.speakersMarqueeWrap}>
+            <div className={styles.speakersMarqueeFadeL} />
+            <div className={styles.speakersMarqueeTrack}>
+              {[...speakers.filter(s => !s.isKeynote), ...speakers.filter(s => !s.isKeynote)].map((speaker, idx) => {
+                const originalIdx = idx % speakers.filter(s => !s.isKeynote).length;
+                return (
+                  <Link
+                    href={`/speakers/${speaker.id}`}
+                    key={`${speaker.id}-${idx}`}
+                    className={styles.speakerCard}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <div className={styles.speakerPhoto}>
+                      <img
+                        src={speaker.photo}
+                        alt={SPEAKERS_REVEALED ? speaker.name : 'Speaker to be revealed'}
+                        className={`${styles.speakerImg} ${!SPEAKERS_REVEALED ? styles.speakerImgBlurred : ''}`}
+                      />
+                      <div className={styles.speakerWatermark}>
+                        <CornerShape color="rgba(255,255,255,0.12)" className={styles.speakerWatermarkShape} />
+                      </div>
+                      <span className={styles.speakerBadge}>
+                        {String(originalIdx + 4).padStart(2, '0')}
+                      </span>
+
+                      {!SPEAKERS_REVEALED && (
+                        <div className={styles.speakerRevealOverlay}>
+                          <span className={styles.speakerRevealBadge}>
+                            <span className={styles.speakerRevealDot} />
+                            Revealing soon
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className={styles.speakerInfo}>
+                      <div className={styles.speakerAccentLine} />
+                      {SPEAKERS_REVEALED ? (
+                        <>
+                          <h3 className={styles.speakerName}>{speaker.name}</h3>
+                          <p className={styles.speakerRole}>{speaker.title}</p>
+                          <p className={styles.speakerCompanyText}>{speaker.company}</p>
+                          <span className={styles.viewBioLink}>View Biography →</span>
+                        </>
+                      ) : (
+                        <>
+                          <h3 className={styles.speakerName}>Speaker {String(originalIdx + 4).padStart(2, '0')}</h3>
+                          <p className={styles.speakerRole}>Announcement coming</p>
+                        </>
+                      )}
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+            <div className={styles.speakersMarqueeFadeR} />
+          </div>
+
         </div>
       </section>
 

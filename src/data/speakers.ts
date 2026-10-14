@@ -45,7 +45,7 @@ export const speakers: Speaker[] = [
     title: 'Interior & Fashion Designer · Creative Entrepreneur',
     company: 'Founder, Aurelia Interiors',
     photo: '/ns1.jpg',
-    isKeynote: true,
+    isKeynote: false,
     bio: [
       'Kate Inwang is an interior designer and creative entrepreneur passionate about creating spaces that harmonize aesthetics, functionality, and human experience. Having received professional training and gained practical project experience at Design by C. Williams, she has developed a deep appreciation for intentional design, spatial planning, color coordination, and the thoughtful use of materials to create meaningful environments.',
       'Her creative perspective is rooted in the belief that exceptional design goes beyond visual appeal to reflect identity, enhance functionality, and shape how people experience a space. Her interests extend to fashion design, allowing her to explore creative expression across disciplines.',
@@ -59,6 +59,7 @@ export const speakers: Speaker[] = [
     title: 'Speaker · Event Architecture',
     company: 'Branch Manager, Vizid (Uyo) | Event Manager, AKDS',
     photo: '/speak (1).jpeg',
+    isKeynote: true,
     bio: [
       'Asian Dickson serves as the Branch Manager for Vizid Uyo and the Event Manager for the Akwa Ibom Design Summit 2026.',
       'A seasoned strategist specializing in community growth and large-scale event operations, Asian has managed and executed dozens of high-impact activations across West Africa. At Vizid, he spearheads local market expansion and operational excellence, while leading the summit\'s core planning to unite top-tier designers, architects, and innovators.',
