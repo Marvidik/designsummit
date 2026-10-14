@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Fraunces } from "next/font/google";
+import { RegisterModalProvider } from "@/context/RegisterModalContext";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -24,8 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={fraunces.variable}>
       <body>
-        <Navbar />
-        {children}
+        <RegisterModalProvider>
+          <Navbar />
+          {children}
+        </RegisterModalProvider>
       </body>
     </html>
   );

@@ -98,6 +98,45 @@
   max-width: 500px;
 }
 
+/* ── ATTENDEE NAME OVERLAY (BETWEEN THE TWO WHITE LINES) ── */
+.nameOverlay {
+  position: absolute;
+  top: 66.05%;
+  left: 5%;
+  width: 90%;
+  height: 7.25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.nameText {
+  color: #ffffff;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.7rem, 2.2vw, 1.05rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 92%;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.namePlaceholder {
+  color: rgba(255, 255, 255, 0.35);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.6rem, 1.8vw, 0.85rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .controls {
   width: 100%;
   max-width: 500px;
@@ -118,9 +157,57 @@
   font-size: 0.9rem;
 }
 
+.textInput {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid #e5e7eb;
+  background: #ffffff;
+  color: #111827;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.textInput:focus {
+  border-color: #FF6B3D;
+  box-shadow: 0 0 0 3px rgba(255, 107, 61, 0.15);
+}
+
+.textInput::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zoomValue {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
 .slider {
   width: 100%;
   accent-color: #FF6B3D;
+}
+
+.dragHint {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.uploadSection {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
 }
 
 .actions {
@@ -142,6 +229,9 @@
   cursor: pointer;
   transition: transform 0.2s, background 0.2s;
   box-shadow: 0 4px 14px rgba(255, 107, 61, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .uploadBtn:hover,
@@ -162,6 +252,9 @@
   text-align: center;
   cursor: pointer;
   transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .secondaryBtn:hover {
@@ -229,7 +322,9 @@
 }
 
 @media (max-width: 600px) {
-  .modalActions {
+  .modalActions,
+  .uploadSection,
+  .actions {
     flex-direction: column;
   }
 }

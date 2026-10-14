@@ -5,6 +5,7 @@ import styles from './page.module.css';
 import Link from 'next/link';
 
 export default function IWillAttendPage() {
+  const [name, setName] = useState('');
   const [userImage, setUserImage] = useState<string | null>(null);
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -84,9 +85,14 @@ export default function IWillAttendPage() {
     };
   }, []);
 
-  const downloadImage = () => {
+  const downloadImage = async () => {
     if (!containerRef.current) return;
     setIsGenerating(true);
+    
+    // Ensure custom fonts are loaded before drawing on canvas
+    if (typeof document !== 'undefined' && document.fonts) {
+      await document.fonts.ready;
+    }
     
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -153,16 +159,36 @@ export default function IWillAttendPage() {
         
         ctx.drawImage(uImg, finalX, finalY, finalWidth, finalHeight);
         ctx.restore();
-        
-        const dataUrl = canvas.toDataURL('image/png');
-        setGeneratedImage(dataUrl);
-        setIsGenerating(false);
-      } else {
-        // Just save background
-        const dataUrl = canvas.toDataURL('image/png');
-        setGeneratedImage(dataUrl);
-        setIsGenerating(false);
       }
+
+      // Draw Attendee Name between the two white lines (Y: 1932 to 2144, Center: 2038)
+      if (name.trim()) {
+        const displayName = name.trim().toUpperCase();
+        ctx.save();
+        ctx.fillStyle = '#FFFFFF';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        let fontSize = 64; // Sleek, elegant, fitting comfortably between the lines
+        ctx.font = `700 ${fontSize}px "Inter", "Segoe UI", Arial, sans-serif`;
+        
+        const maxTextWidth = 1400;
+        while (ctx.measureText(displayName).width > maxTextWidth && fontSize > 26) {
+          fontSize -= 2;
+          ctx.font = `700 ${fontSize}px "Inter", "Segoe UI", Arial, sans-serif`;
+        }
+        
+        if ('letterSpacing' in ctx) {
+          (ctx as any).letterSpacing = '6px';
+        }
+        
+        ctx.fillText(displayName, canvas.width / 2, 2038);
+        ctx.restore();
+      }
+      
+      const dataUrl = canvas.toDataURL('image/png');
+      setGeneratedImage(dataUrl);
+      setIsGenerating(false);
     };
   };
 
@@ -173,7 +199,7 @@ export default function IWillAttendPage() {
           ← Back to Home
         </Link>
         <h1 className={styles.title}>Create Your Badge</h1>
-        <p className={styles.subtitle}>Upload your photo, position it, and share!</p>
+        <p className={styles.subtitle}>Enter your name, upload your photo, and share!</p>
       </div>
       
       <div className={styles.editorWrapper}>
@@ -208,24 +234,64 @@ export default function IWillAttendPage() {
               </div>
             </div>
           )}
+
+          {/* Attendee Name Overlay between the two white lines */}
+          <div className={styles.nameOverlay}>
+            {name.trim() ? (
+              <span className={styles.nameText}>{name.trim()}</span>
+            ) : (
+              <span className={styles.namePlaceholder}>YOUR NAME HERE</span>
+            )}
+          </div>
         </div>
 
         <div className={styles.controls}>
+          <div className={styles.controlGroup}>
+            <label htmlFor="attendeeName">Your Full Name</label>
+            <input 
+              id="attendeeName"
+              type="text" 
+              placeholder="e.g. Emmanuel Udoh" 
+              value={name} 
+              onChange={(e) => setName(e.target.value)} 
+              className={styles.textInput}
+              maxLength={40}
+            />
+          </div>
+
           {!userImage ? (
-            <label className={styles.uploadBtn}>
-              Upload Photo
-              <input 
-                type="file" 
-                accept="image/*" 
-                onChange={handleImageUpload} 
-                style={{ display: 'none' }} 
-              />
-            </label>
+            <div className={styles.uploadSection}>
+              <label className={styles.uploadBtn}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px', verticalAlign: 'middle', display: 'inline-block' }}>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="17 8 12 3 7 8" />
+                  <line x1="12" y1="3" x2="12" y2="15" />
+                </svg>
+                Upload Photo
+                <input 
+                  type="file" 
+                  accept="image/*" 
+                  onChange={handleImageUpload} 
+                  style={{ display: 'none' }} 
+                />
+              </label>
+              <button 
+                className={styles.secondaryBtn} 
+                onClick={downloadImage} 
+                disabled={isGenerating}
+              >
+                {isGenerating ? 'Generating...' : 'Download Badge'}
+              </button>
+            </div>
           ) : (
             <>
               <div className={styles.controlGroup}>
-                <label>Zoom</label>
+                <div className={styles.sliderHeader}>
+                  <label htmlFor="zoomSlider">Zoom</label>
+                  <span className={styles.zoomValue}>{Math.round(scale * 100)}%</span>
+                </div>
                 <input 
+                  id="zoomSlider"
                   type="range" 
                   min="0.1" 
                   max="3" 
@@ -234,6 +300,7 @@ export default function IWillAttendPage() {
                   onChange={(e) => setScale(parseFloat(e.target.value))}
                   className={styles.slider}
                 />
+                <span className={styles.dragHint}>💡 Tip: Drag the photo in the frame to adjust its position</span>
               </div>
               <div className={styles.actions}>
                 <label className={styles.secondaryBtn}>

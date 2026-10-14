@@ -1,0 +1,262 @@
+/* ── REGISTRATION SOCIALS MODAL (MODERN & AUTHENTIC) ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+  color: #111827;
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: none;
+  background: #f3f4f6;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.closeBtn:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+  padding-right: 2rem;
+}
+
+.categoryTag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FF6B3D;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+
+.title {
+  font-family: var(--font-fraunces, Georgia, serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.socialList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.85rem;
+  background: #ffffff;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.socialRow:hover {
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+
+.socialLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.facebookIcon {
+  background: #eff6ff;
+  color: #1877F2;
+}
+
+.instagramIcon {
+  background: #fdf2f8;
+  color: #e1306c;
+}
+
+.tiktokIcon {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.socialDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.socialPlatform {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.socialHandle {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.followButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.followButton:hover {
+  background: #374151;
+}
+
+.footer {
+  border-top: 1px solid #f3f4f6;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.continueButton {
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  border-radius: 10px;
+  background: #FF6B3D;
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.15s ease;
+}
+
+.continueButton:hover {
+  background: #e65a2e;
+}
+
+.footerNote {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 1.5rem 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .title {
+    font-size: 1.45rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .socialRow {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .socialIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .socialPlatform {
+    font-size: 0.88rem;
+  }
+
+  .socialHandle {
+    font-size: 0.75rem;
+  }
+
+  .followButton {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .continueButton {
+    font-size: 0.92rem;
+    padding: 0.85rem 1rem;
+  }
+}
