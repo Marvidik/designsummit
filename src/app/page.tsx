@@ -360,48 +360,64 @@ export default function Home() {
         <div className={styles.speakersCarouselContainer}>
           <div className={styles.fadeLeft} />
           <div className={styles.speakersTrack}>
-            {[...speakers, ...speakers].map((speaker, idx) => (
-              <Link href={`/speakers/${speaker.id}`} key={idx} className={styles.speakerCard} style={{ textDecoration: 'none' }}>
-                <div className={styles.speakerPhoto}>
-                  <img
-                    src={speaker.photo}
-                    alt={SPEAKERS_REVEALED ? speaker.name : 'Speaker to be revealed'}
-                    className={`${styles.speakerImg} ${!SPEAKERS_REVEALED ? styles.speakerImgBlurred : ''}`}
-                  />
-                  <div className={styles.speakerWatermark}>
-                    <CornerShape color="rgba(255,255,255,0.15)" className={styles.speakerWatermarkShape} />
-                  </div>
-                  <span className={styles.speakerBadge}>
-                    {String(((idx % speakers.length) + 1)).padStart(2, '0')}
-                  </span>
-
-                  {!SPEAKERS_REVEALED && (
-                    <div className={styles.speakerRevealOverlay}>
-                      <span className={styles.speakerRevealBadge}>
-                        <span className={styles.speakerRevealDot} />
-                        Revealing soon
-                      </span>
+            {[...speakers, ...speakers].map((speaker, idx) => {
+              const isEven = idx % 2 === 0;
+              const isKeynote = !!speaker.isKeynote;
+              return (
+                <Link
+                  href={`/speakers/${speaker.id}`}
+                  key={idx}
+                  className={`${styles.speakerCard} ${isEven ? styles.cardDown : styles.cardUp} ${isKeynote ? styles.cardMain : ''}`}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className={styles.speakerPhoto}>
+                    <img
+                      src={speaker.photo}
+                      alt={SPEAKERS_REVEALED ? speaker.name : 'Speaker to be revealed'}
+                      className={`${styles.speakerImg} ${!SPEAKERS_REVEALED ? styles.speakerImgBlurred : ''}`}
+                    />
+                    <div className={styles.speakerWatermark}>
+                      <CornerShape color="rgba(255,255,255,0.15)" className={styles.speakerWatermarkShape} />
                     </div>
-                  )}
-                </div>
+                    <span className={styles.speakerBadge}>
+                      {String(((idx % speakers.length) + 1)).padStart(2, '0')}
+                    </span>
 
-                <div className={styles.speakerInfo}>
-                  <div className={styles.speakerAccentLine} />
-                  {SPEAKERS_REVEALED ? (
-                    <>
-                      <h3 className={styles.speakerName}>{speaker.name}</h3>
-                      <p className={styles.speakerRole}>{speaker.title}</p>
-                      <p className={styles.speakerCompanyText}>{speaker.company}</p>
-                    </>
-                  ) : (
-                    <>
-                      <h3 className={styles.speakerName}>Speaker {String(((idx % speakers.length) + 1)).padStart(2, '0')}</h3>
-                      <p className={styles.speakerRole}>Announcement coming</p>
-                    </>
-                  )}
-                </div>
-              </Link>
-            ))}
+                    {isKeynote && (
+                      <span className={styles.keynoteBadge}>
+                        Keynote
+                      </span>
+                    )}
+
+                    {!SPEAKERS_REVEALED && (
+                      <div className={styles.speakerRevealOverlay}>
+                        <span className={styles.speakerRevealBadge}>
+                          <span className={styles.speakerRevealDot} />
+                          Revealing soon
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className={styles.speakerInfo}>
+                    <div className={styles.speakerAccentLine} />
+                    {SPEAKERS_REVEALED ? (
+                      <>
+                        <h3 className={styles.speakerName}>{speaker.name}</h3>
+                        <p className={styles.speakerRole}>{speaker.title}</p>
+                        <p className={styles.speakerCompanyText}>{speaker.company}</p>
+                        <span className={styles.viewBioLink}>View Biography →</span>
+                      </>
+                    ) : (
+                      <>
+                        <h3 className={styles.speakerName}>Speaker {String(((idx % speakers.length) + 1)).padStart(2, '0')}</h3>
+                        <p className={styles.speakerRole}>Announcement coming</p>
+                      </>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
           </div>
           <div className={styles.fadeRight} />
         </div>
